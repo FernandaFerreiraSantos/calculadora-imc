@@ -20,7 +20,7 @@ function classificar(imc) {
     } else if (imc < 40) {
         classificacao = 'com obesidade grau II'
     } else {
-        classificacao = 'com obesidade grau III, CUIDADO!!'
+        classificacao = 'com obesidade grau III, <span class = "vermelho">CUIDADO!!</span>'
     }
 
     return classificacao
@@ -40,7 +40,7 @@ function exibirResultado() {
     if (camposValidos()) {
         const imc = calcularIMC(peso, altura)
         const classificado = classificar(imc)
-        resultado.textContent = `${nome} seu IMC é ${imc.replace('.', ',')}. Você está ${classificado}`
+        resultado.innerHTML = `${nome} seu IMC é ${imc.replace('.', ',')}. Você está ${classificado}`
     } else {
         resultado.textContent = 'Preencha todos os campos'
     }

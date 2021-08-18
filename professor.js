@@ -40,7 +40,7 @@ function exibirResultado() {
     if (camposValidos()) {
         const imc = calcularIMC(peso, altura)
         const classificado = classificar(imc)
-        resultado.textContent = `${nome} seu IMC é ${imc.replace('.',',')}. Você está ${classificado}`
+        resultado.textContent = `${nome} seu IMC é ${imc.replace('.', ',')}. Você está ${classificado}`
     } else {
         resultado.textContent = 'Preencha todos os campos'
     }
@@ -48,5 +48,13 @@ function exibirResultado() {
 
 // ----------------eventos------------------
 
+function capturarEnter(event) {
+    if (event.key == 'Enter') {
+        exibirResultado()
+    }
+}
+
 document.getElementById('calcular')
     .addEventListener('click', exibirResultado)
+document.querySelector('form')
+    .addEventListener('keypress', capturarEnter)
